@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homeassistant
+  namespace: team-yolo
+spec:
+  destination:
+    name: poc-team-1
+    namespace: team-yolo
+  project: team-yolo
+  source:
+    targetRevision: main
+    path: k8s/homeassistant
+    repoURL: https://github.com/frealmyr/argo-poc-team-alpha
+    helm:
+      releaseName: homeassistant
